@@ -91,8 +91,17 @@
 -- 목표: 게시물별 댓글이 달린 게시물 + 댓글 개수가 나오는 표(테이블)을 생성
 -- 목표분해1: 게시물에 댓글이 달린 게시물만 출력  (기본) 테이블 조인 사용(교집합개념)
 -- 목표분해2: 위 출력물에서 댓글개수를 추가로 출력(카운터) GROUP BY 해서 COUNT()사용
-SELECT * FROM TBL_BOARD;
-SELECT * FROM TBL_REPLY;
+-- 뷰테이블이 필요한 이유: 사용자 요구사항에 맞추기위해서, 보안때문에 노출할 정보를 제한이 가능함.
+-- 다른개발자, 다른이용자에게 숨겨야할 정보가 제외하고 자료를 공개할때, TBL_MEMBER테이블을공개하지 않고, 필드를 삭제한 VIEW_MEMBER_INFO라는 뷰테이블을 생성해서 제공하는 목적.
+- 위 제한된 정보를 가지고, 외부개발자가 REST-API화면을 만드는 겁니다.
+
+```
+SELECT TA.bno,TA.title,TA.writer,TA.reg_date,TA.view_count, COUNT(TB.rno) AS 댓글카운트 FROM 
+TBL_BOARD TA INNER JOIN TBL_REPLY TB ON TA.BNO = TB.BNO
+GROUP BY TA.bno,TA.title,TA.writer,TA.reg_date,TA.view_count
+-- HAVING COUNT(TB.rno) >= 3
+;
+```
 - 게시물별 첨부파일 갯수를 검색하는 쿼리를 테이블 조인을 이용해서 작성한 소스와 실행 결과캡쳐물을 이 문서에 저장한다.
 - 용어2 테이블조인:
 
