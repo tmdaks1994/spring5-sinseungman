@@ -2,7 +2,7 @@ package kr.or.test;
 
 /**
  * 클래스자료형 사용에 대해서
- * @author 김일국
+ * @author 뚫어봐
  *
  */
 class MemberVO {

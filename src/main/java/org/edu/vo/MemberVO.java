@@ -3,6 +3,7 @@ package org.edu.vo;
 import java.util.Date;
 
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.stereotype.Component;
 
@@ -14,11 +15,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class MemberVO {
 	//멤버변수 선언(클래스 전역변수)
+	@NotNull(message="사용자ID는 빈값으로 저장할 수 없습니다.")
 	private String user_id;//프라이빗: 클래스 내부에서만 사용가능, 보안때문에
 	private String user_pw;
 	private String user_name;
 	private String email;
-	@Min(value=0,message="포인트는 0보다 큰 숫자만 입력 가능합니다.")
+	@Min(value=0,message="포인트는 0보다 큰 숫자만 입력 가능.")
 	private Integer point;//int(not null) 기본형 -> 참조형은 Integer(null가능) 클래스변수
 	//member_write.jsp에서 전송값이 point가 빈값으로 올때,int형에러발생, Integer형은 에러없이 지나감.
 	private Boolean enabled;//불린형은 true, false 2개의 값중 1개.

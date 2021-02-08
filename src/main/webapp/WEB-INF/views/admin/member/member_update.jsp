@@ -87,8 +87,8 @@
           <!-- 버튼영역 시작 -->
             <div class="card-body">
             	<a href="/admin/member/member_list?page=${pageVO.page}" class="btn btn-primary float-right mr-1">LIST ALL</a>
-            	<a href="/admin/member/member_view?page=${pageVO.page}&user_id=${memberVO.user_id}" class="btn btn-info float-right mr-1">뒤로가기</a>
-              	<button type="submit" class="btn btn-danger float-right mr-1">수정</button>              	
+            	<a href="/admin/member/member_view?page=${pageVO.page}&user_id=${memberVO.user_id}" class="btn btn-info float-right mr-1">back view</a>
+              	<button type="submit" class="btn btn-danger float-right mr-1">modify</button>              	
               	<!-- a태그는 링크이동은 되지만, post값을 전송하지는 못합니다. 그래서, button태그를 사용. -->
             </div>
           <!-- 버튼영역 끝 -->
