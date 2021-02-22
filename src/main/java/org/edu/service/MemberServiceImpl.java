@@ -74,4 +74,14 @@ public class MemberServiceImpl implements IF_MemberService {
 		}
 	}
 
+	@Override
+	public void testJob() throws Exception {
+		// DAO호출
+		List<MemberVO> memberList = memberDAO.testJob();
+		System.out.println("6개월 동안 회원정보 수정이 없는 회원정보는  ");
+		for(MemberVO memberVO:memberList) {
+			System.out.println(memberVO.getUser_id()+":"+memberVO.getEmail());
+		}
+	}
+
 }

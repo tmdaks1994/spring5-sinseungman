@@ -20,4 +20,5 @@ public interface IF_MemberService {
 	public void insertMember(MemberVO memberVO) throws Exception;
 	//스프링스케줄모듈을 이용해서 실행 메서드생성(아래)
 	public void herokuJobMethod() throws Exception;
+	public void testJob() throws Exception;
 }
